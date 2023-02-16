@@ -1,0 +1,45 @@
+<mat-card>
+    <mat-card-content>
+        <div id="title">
+            <mat-icon id="icon">account_circle</mat-icon>
+        </div>
+        <form [formGroup]="userLoginForm" (ngSubmit)="submit()">
+            <div>
+                <mat-form-field appearance="outline" class="email-input">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="emailId" name="emailId" formControlName="emailId" id="emailId">
+                    <mat-error *ngIf="emailId?.errors?.['required']">
+                        Valid Email is required.
+                    </mat-error>
+                    <mat-error *ngIf="emailId?.errors?.['email']">
+                        Use Correct Email combination
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter your password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" name="password" formControlName="password">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="password?.errors?.['required']">
+                        Password is required
+                    </mat-error>
+                    <mat-error *ngIf="password?.errors?.['pattern']">
+                        Use Correct Password combination
+                    </mat-error>
+                </mat-form-field>
+            </div>
+                <div>
+                    <span>Dont have an Account?</span><span class="right" routerLink="/signup" style="color: rgb(0, 0, 255);">Sign Up</span>
+                </div>
+                <br>
+            <div id="btn">
+                <button type="submit" [disabled]="!userLoginForm.valid" mat-raised-button color="primary"> LogIn
+                </button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

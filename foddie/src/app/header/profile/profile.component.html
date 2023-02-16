@@ -1,0 +1,77 @@
+<mat-card>
+    <mat-tab-group>
+        <mat-tab label="Profile">
+            <mat-card>
+                <!-- <mat-card-title class="side"> Profile </mat-card-title> -->
+                <mat-card-content>
+                    <nav class="nav">
+                        <div class="image">
+                            <img [src]="'data:image/jpeg;base64,' + user.profilePic" id="profile">
+                        </div>
+                        <div class="details">
+                            <h2 class="name"> {{user.firstName}} {{user.lastName}} </h2>
+                            <p class="email"> Email Id: {{user.emailId}} </p>
+                            <p class="phone"> Contact Number:{{user.contactNumber}} </p>
+                        </div>
+                    </nav>
+                </mat-card-content>
+            </mat-card>
+        </mat-tab>
+        <mat-tab label="Orders">
+            <mat-card>
+                <!-- <mat-card-title class="side">
+                    Your orders
+                </mat-card-title> -->
+                <mat-card-content>
+                    <!-- <scrollbar class="scrollbar"> -->
+                    <div class="Empty" *ngIf="orders1.length<1">
+                        <span>No orders found</span>
+                    </div>
+                    <div *ngFor="let x of orders1; let i=index">
+                        <span style="font-weight: bolder; font-size: larger;" class="side">Ordered Items</span>
+                        <br>
+                        {{i+1}}
+
+                        <nav class="nav">
+
+                            <div *ngFor="let item of x.items">
+
+
+                                <div class="img">
+                                    <img src="../../../../assets/imgs/{{item.itemName}}.jpg" alt="">
+                                </div>
+                                <div class="info">
+                                    <span class="name">
+                                        {{item.itemName}}
+                                    </span>
+                                    <span class="price">
+                                        &#8377; {{item.itemPrice}} * {{item.quantity}}
+                                    </span>
+                                </div>
+
+                            </div>
+                        </nav>
+                        <br>
+                        <span style="font-weight: bolder; font-size: larger;" class="side">Total Amount &#8377;
+                            {{x.totalAmount}}</span>
+                        <span class="date">
+                            Date :{{x.date}}
+                        </span>
+
+                        <hr>
+                        <br>
+                    </div>
+                    <!-- </scrollbar> -->
+
+                </mat-card-content>
+            </mat-card>
+        </mat-tab>
+
+    </mat-tab-group>
+</mat-card>
+
+<!-- <div *ngFor="let x of orders1">
+        <div *ngFor="let item of x.items;">
+            {{item.itemName}}
+    </div>
+    </div> -->

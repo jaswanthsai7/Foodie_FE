@@ -1,0 +1,38 @@
+mat-card{
+    max-width: 500px;
+    margin: 10em auto;
+    max-height: 600px ;
+    padding: 10px;
+    opacity:0.7;
+}
+
+mat-form-field{
+    display: block;
+    padding: 10px;
+}
+
+#title{
+    text-align: center;
+}
+
+#icon{
+    font-size: 75px;
+    width: 75px;
+    height: 75px;
+    margin-bottom: 10px;
+}
+
+#btn{
+    text-align: center;
+}
+
+button{
+    padding: 0px 50px;
+}
+
+form{
+   background: none;
+}
+.right{
+    margin-left: 10px;
+}

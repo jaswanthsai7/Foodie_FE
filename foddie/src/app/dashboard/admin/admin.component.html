@@ -1,0 +1,118 @@
+<nav class="nav1">
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter1"
+    (click)="reset()">
+    Add Restaurant
+  </button>
+
+</nav>
+
+
+
+<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title" id="exampleModalLongTitle">Add Restaurant</div>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"><mat-icon>close</mat-icon></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="registrationForm">
+
+          <mat-form-field appearance="outline">
+            <mat-label>restaurant Name</mat-label>
+            <input type="text" matInput type="restaurantName" formControlName="restaurantName" id="restaurantName">
+            <mat-error
+              *ngIf="registrationForm.controls['restaurantName'].hasError('required')&&registrationForm.get('restaurantName')?.dirty">
+              restaurantName is <strong>required</strong>
+            </mat-error>
+
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="move">
+            <mat-label>City</mat-label>
+            <input type="text" matInput type="city" formControlName="city" id="city">
+            <mat-error *ngIf="registrationForm.controls['city'].hasError('required')">
+              city is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full">
+            <mat-label>description</mat-label>
+            <textarea matInput type="description" formControlName="description" id="description"></textarea>
+            <mat-error *ngIf="registrationForm.controls['description'].hasError('required')">
+              description is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <br>
+          <div>
+            <mat-label>Add Restaurant Image</mat-label>
+            <br> <br>
+            <input type="file" #myInput1 (change)="onFileSelect($event)">
+          </div>
+
+          <br>
+
+          <div id="buton">
+            <button class="button1" mat-button mat-raised-button type="reset">Reset</button>
+            <button class="button1" (click)="func1(registrationForm)" mat-button mat-raised-button color="primary" data-bs-dismiss="modal"
+              aria-label="Close" type="reset">Submit</button>
+          </div>
+          
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+  <nav class="nav">
+  <mat-card class="restro" *ngFor="let restaurant of restaurants">
+    <div>
+      <div class="background"></div>
+      <div class="info" >
+        <div class="img" routerLink="view/{{restaurant.id}}">
+          <img [src]="'data:image/jpeg;base64,' + restaurant.restaurantImage.image" alt="">
+        </div>
+        <div class="name">
+          <div class="content">
+            <span>
+              <span routerLink="view/{{restaurant.id}}">{{restaurant.restaurantName}}</span>
+              <div class="location">
+                <i class="fa-solid fa-location-pin"></i>
+                {{restaurant.city}}
+              </div>
+            </span>
+            <p>{{restaurant.description}}</p>
+          </div>
+        </div>
+          <span>
+          <p class="button">
+            <button mat-icon-button matTooltip="update Restaurant" routerLink="updaterestaurant/{{restaurant.id}}">
+              <mat-icon class="icon">edit</mat-icon>
+            </button>
+            <button mat-icon-button  matTooltip="delete Restaurant" (click)="deleteRestaurant(restaurant.id)">
+              <mat-icon class="icon">delete</mat-icon>
+            </button>
+            <button mat-icon-button  matTooltip="add dishes" routerLink="updatemenu/{{restaurant.id}}">
+              <mat-icon class="icon">add</mat-icon>
+            </button>
+          </p></span>
+      </div>
+      
+    </div>
+  </mat-card>
+</nav>
+</div>

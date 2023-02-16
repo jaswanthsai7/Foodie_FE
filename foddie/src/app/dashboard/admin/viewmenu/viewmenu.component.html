@@ -1,0 +1,51 @@
+<mat-card *ngFor="let restaurant of restaurants">
+    <div class="header">
+        <mat-card-title>
+            
+            {{restaurant?.restaurantName}}
+            <br>
+            <span class="city">
+                {{restaurant?.city}}
+            </span>
+
+            <!-- <div class="fav">
+        <button mat-icon-button color="warn">
+            <mat-icon class="icon">favorite</mat-icon>
+        </button>
+    </div> -->
+    <div class="search">
+        <input type="text" class="search-bar" id="search-bar" placeholder="Search for Dishes" (keyup)="searchData()">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+            
+            <mat-card-content>
+                <div class="menu">
+                    <div class="items" *ngFor="let menu of menus">
+                        <div class="img">
+                            <img src="../../../../assets/imgs/{{menu.itemName}}.jpg" alt="">
+                        </div>
+                        <div class="info">
+                            <nav class="nav">
+                                <div class="name">
+                                    {{menu.itemName}}
+                                    <br>
+                                    <span class="description">
+                                        <p>{{menu.description}}</p>
+                                    </span>
+                                </div>
+
+                                <span class="price">
+                                    <!-- {{menu.description}} -->
+                                    <span>
+                                        &#8377; {{menu.itemPrice}}
+                                    </span>
+                                </span>
+                            </nav>
+                        </div>
+                    </div>
+
+                </div>
+            </mat-card-content>
+        </mat-card-title>
+    </div>
+</mat-card>

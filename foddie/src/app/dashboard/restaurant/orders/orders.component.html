@@ -1,0 +1,145 @@
+<mat-card>
+    <mat-card-title>
+        Your Order Summary
+    </mat-card-title>
+    <mat-card-content>
+        <div class="menu">
+            <div class="items" *ngFor="let order of orders">
+                <div class="img">
+                    <img src="../../../../assets/imgs/{{order.itemName}}.jpg" alt="">
+                </div>
+                <div class="info">
+                    <span class="name">
+                        {{order.itemName}}
+                    </span>
+                    <span class="price">
+                        &#8377;
+                        {{order.itemPrice}}
+                    </span>
+                </div>
+                <div class="add">
+                    <button mat-icon-button (click)="removeItem(order)">
+                        <mat-icon class="icon">
+                            remove
+                        </mat-icon>
+                    </button>
+                    <span class="price">
+                        {{order.quantity ? order.quantity : 0}}
+                    </span>
+                    <button mat-icon-button (click)="addQuantity(order)">
+                        <mat-icon class="icon">
+                            add
+                        </mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <br>
+        <div style="font-weight: bolder; font-size: larger;" class="side">Total Amount &#8377;
+            {{totalprice}}
+        </div>
+        <div>
+            <form [formGroup]="orderForm">
+                <div formGroupName="address" id="popup">
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Street Name</mat-label>
+                        <input type="text" matInput type="streetName" formControlName="streetName" id="streetName"
+                            name="streetName">
+                        <mat-error *ngIf="orderForm.get('address.streetName')?.hasError('required')">
+                            Street field is required.
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="move">
+                        <mat-label>City</mat-label>
+                        <input type="text" matInput type="city" formControlName="city" id="city" name="city">
+                        <mat-error *ngIf="orderForm.get('address.city')?.hasError('required')">
+                            city field is required.
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="full">
+                        <mat-label>PinCode</mat-label>
+                        <input type="text" matInput type="pinCode" formControlName="pinCode" id="pinCode"
+                            name="pinCode">
+                        <mat-error *ngIf="orderForm.get('address.pinCode')?.hasError('required')">
+                            pinCode field is required.
+                        </mat-error>
+                        <mat-error *ngIf="orderForm.get('address.pinCode')?.hasError('pattern')">
+                            pinCode should contains digits
+                        </mat-error>
+                    </mat-form-field>
+                    <div>
+                        <button class="button1" mat-button mat-raised-button type="reset">Reset</button>
+                        <button class="button2" mat-button mat-raised-button color="primary" (click)="saveOrder(orderForm)" >Order</button>
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
+    </mat-card-content>
+
+</mat-card>
+
+
+
+
+
+
+
+<!-- Address Form -->
+
+
+<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="exampleModalLongTitle">Please Add the address</div>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><mat-icon>close</mat-icon></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="orderForm">
+                    <div formGroupName="address" id="popup">
+
+                        <mat-form-field appearance="outline">
+                            <mat-label>Street Name</mat-label>
+                            <input type="text" matInput type="streetName" formControlName="streetName" id="streetName"
+                                name="streetName">
+                            <mat-error *ngIf="orderForm.get('address.streetName')?.hasError('required')">
+                                Street field is required.
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="move">
+                            <mat-label>City</mat-label>
+                            <input type="text" matInput type="city" formControlName="city" id="city" name="city">
+                            <mat-error *ngIf="orderForm.get('address.city')?.hasError('required')">
+                                city field is required.
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="full">
+                            <mat-label>PinCode</mat-label>
+                            <input type="text" matInput type="pinCode" formControlName="pinCode" id="pinCode"
+                                name="pinCode">
+                            <mat-error *ngIf="orderForm.get('address.pinCode')?.hasError('required')">
+                                pinCode field is required.
+                            </mat-error>
+                            <mat-error *ngIf="orderForm.get('address.pinCode')?.hasError('pattern')">
+                                pinCode should contains digits
+                            </mat-error>
+                        </mat-form-field>
+                        <button class="button1" mat-button mat-raised-button type="reset">Reset</button>
+                        <button class="button2" mat-button mat-raised-button  (click)="saveOrder(orderForm)">Order</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,112 @@
+<!-- <div>
+    <nav class="nav">
+        <h2>Add Dish</h2>
+        <button mat-icon-button>
+            <mat-icon class="icon">add</mat-icon>
+        </button>
+    </nav>
+</div> -->
+
+<div>
+    <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title" id="exampleModalLongTitle">Add Dish</div>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><mat-icon>close</mat-icon></span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="menuList">
+                        <mat-form-field appearance="outline" class="full">
+                            <mat-label>itemName</mat-label>
+                            <input type="text" matInput type="itemName" id="itemName" formControlName="itemName"
+                                name="itemName">
+                            <mat-error *ngIf="menuList.controls['itemName'].hasError('required')">
+                                itemName can't be empty
+                            </mat-error>
+                        </mat-form-field>
+                        
+                        <mat-form-field appearance="outline">
+                            <mat-label>description</mat-label>
+                            <input type="text" matInput type="description" id="description"
+                                formControlName="description">
+                            <mat-error *ngIf="menuList.controls['description'].hasError('required')">
+                                description is required
+                            </mat-error>
+                            <br>
+                        </mat-form-field> 
+                        <mat-form-field appearance="outline" class="move">
+                            <mat-label>ItemPrice</mat-label>
+                            <input type="text" matInput type="itemPrice" id="itemPrice" formControlName="itemPrice">
+                            <mat-error *ngIf="menuList.controls['itemPrice'].hasError('pattern')">
+                                Enter correct price format
+                            </mat-error>
+                        </mat-form-field>
+                        <br>
+                        <div id="buton">
+                            <button class="button1" mat-button mat-raised-button type="reset">Reset</button>
+                            <button class="button1" (click)="func2(menuList)" mat-button mat-raised-button color="primary"
+                                data-bs-dismiss="modal" aria-label="Close" type="reset">Submit</button>
+                        </div>
+                        
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<mat-card>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" (click)="reset()"
+        data-bs-target="#exampleModalCenter1">
+        Add Dish
+    </button>
+    <div class="header">
+        <mat-card-title>
+            <mat-card-content>
+                <div class="menu">
+                    <div class="items" *ngFor="let menu of menus">
+                        <div class="img">
+                            <img src="../../../../assets/imgs/{{menu.itemName}}.jpg" alt="">
+                        </div>
+                        <nav class="nav">
+
+                            <div class="info">
+                                <nav class="nav">
+                                    <div class="name">
+                                        {{menu.itemName}}
+                                        <br>
+                                        <span class="description">
+                                            <p>{{menu.description}}</p>
+                                        </span>
+                                    </div>
+
+                                    <span class="price">
+                                        <!-- {{menu.description}} -->
+                                        <span>
+                                            &#8377; {{menu.itemPrice}}
+                                        </span>
+                                    </span>
+                                </nav>
+                                <!-- <span class="price">
+                                &#8377; {{menu.itemPrice}}
+                            </span> -->
+
+                            </div>
+                            <div class="bt">
+                                <button mat-icon-button (click)="deleteMenu(menu.itemName)">
+                                    <mat-icon class="icon">delete</mat-icon>
+                                </button>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+
+            </mat-card-content>
+        </mat-card-title>
+    </div>
+</mat-card>

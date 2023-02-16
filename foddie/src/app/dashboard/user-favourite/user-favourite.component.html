@@ -1,0 +1,61 @@
+<div class="container">
+    <mat-card>
+        <mat-tab-group>
+            <mat-tab label="FAVOURITE RESTAURANT">
+
+                <div class="container" id="fle">
+                    <div class="card" *ngFor="let restaurant of favRes">
+                        <div class="card-body">
+                            <div class="top">
+                                <img [src]="'data:image/jpeg;base64,' + restaurant.restaurantImage.image" alt="">
+
+
+                                <div id="mid">
+                                    <h2 class="card-title">{{restaurant.restaurantName}}</h2> <br>
+                                    <h5 class="card-subtitle text-muted"><i class="fa-solid fa-location-pin"></i>
+                                        {{restaurant.city}} </h5>
+                                </div>
+                                <button mat-icon-button (click)="removeFavRestaurant(restaurant.restaurantName)" matTooltip="Un-favorite">
+                                    <mat-icon>
+                                        remove_circle_outline
+                                    </mat-icon>
+                                </button>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </mat-tab>
+
+            <mat-tab label="FAVOURITE DISH">
+                <div class="container" id="fle">
+                    <div class="card" *ngFor="let dish of favDish">
+                        <div class="card-body">
+                            <div class="top">
+                                <img src="../../../../assets/imgs/{{dish.itemName}}.jpg" alt="">
+
+                                <div id="mid">
+                                    <h2 class="card-title">{{dish.itemName}}</h2> <br>
+                                    <h5 class="card-subtitle text-muted"><i class="fa fa-inr" aria-hidden="true"></i>
+                                        {{dish.itemPrice}} </h5>
+                                </div>
+
+                                <button mat-icon-button color="basic" (click)="removeFavDish(dish.itemName)" matTooltip="Un-favorite">
+                                    <mat-icon>
+                                        remove_circle_outline
+                                    </mat-icon>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </mat-tab>
+
+        </mat-tab-group>
+    </mat-card>
+</div>

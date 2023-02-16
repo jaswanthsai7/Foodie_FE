@@ -1,0 +1,46 @@
+img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-left: 20px;
+}
+mat-card{
+    width: 80%;
+    margin: auto;
+    margin-bottom: 30px;
+}
+.details{
+    margin-left: 40px;
+    font-size: large;
+
+}
+.info{
+    margin-left: 20px;
+}
+.side{
+    margin-left: 20px;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.details>h2{
+    text-align: center;
+    font-size: larger;
+    text-decoration: underline;
+}
+
+#profile{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-left: 20px;
+}
+
+.date{
+    float: right;
+    font-weight: bold;
+}

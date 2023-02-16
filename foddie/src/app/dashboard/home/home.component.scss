@@ -1,0 +1,108 @@
+.container{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    .banner{
+        color: white;
+        &-title{
+            font-size: 40px;
+            font-weight: bolder;
+            text-transform: lowercase;
+            font-style: italic;
+        }
+        &-quote{
+            font-size: 30px;
+            font-family: 'Raleway',sans-serif;
+            font-weight: 200;
+            span{
+                font-weight: 400;
+            }
+        }
+
+    }
+    .search{
+        border: 1px solid gray;
+        background: #ffff;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        width: 500px;
+        padding: 0 10px;
+        margin: auto;
+        margin-top: 30px;
+        position: relative;
+        &-bar{
+            background: none;
+            outline: none;
+            border: none;
+            height: 40px;
+            width: 100%;
+            margin:0;
+            padding: 0 10px;
+        }
+    }
+    .fa-solid{
+        color:gray;
+        font-size: 25px;
+        cursor: pointer;
+    }
+}
+#cities{
+    border: none;
+    border-right: 1px solid gray;
+    outline: none;
+}
+#cities:active{
+   border: none;
+   outline: none; 
+
+}
+input::placeholder{
+    font-style: italic;
+}
+.wrapper{
+    text-align: left;
+    background-color: #fff;
+    max-height: 500px;
+    position: absolute;
+    border-radius: 0.8rem;
+    width: 500px;
+    top: 4rem;
+    color: #000;
+    padding: 5px 10px;
+    border: 1px solid rgb(207, 207, 207);
+    box-shadow: rgba(28, 28, 28, 0.08) 0px 2px 8px;
+    transition: opacity 0.25s ease 0s, top 0.25s ease 0s;
+    margin-left: -10px;
+    text-align: left;
+
+}
+.item{
+
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    &-name{
+        cursor: pointer;
+        font-size: 18px;
+        font-family: 'Raleway',sans-serif;
+    }
+    &-city{
+        font-size: 13px;
+        color: #a8a8a8;
+    }
+}
+i.fa-location-pin{
+color: rgba($color: #5bb2f5, $alpha: 0.8) !important;
+
+    font-size: 13px !important;
+}
+
+
+#img{
+    // float: right;
+    height: 50px;
+    width: 50px;
+    border: 2px solid yellow;
+    border-radius: 50%;
+}

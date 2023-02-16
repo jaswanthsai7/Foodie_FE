@@ -1,0 +1,64 @@
+<div class="nav">
+    <mat-toolbar>
+
+        <!-- <div class="home">
+            <mat-icon class="icon_home" routerLink="home">home</mat-icon>
+        </div> -->
+        <div class="banner-title" routerLink="home">
+            <img style="height: 50px; width: 160px;" src="../../../assets/logo.png" alt="">
+        </div>
+
+        <div class="menu" *ngIf="!isLoggedIn">
+            <ul>
+                <li><a routerLink="login">Login</a></li>
+                <li><a routerLink="signup">Signup</a></li>
+                <li><a routerLink="">About</a></li>
+            </ul>
+        </div>
+
+
+        <div class="menu user" *ngIf="isLoggedIn && !isAdmin">
+            <button mat-icon-button="mat-icon-button" routerLink="restaurant">
+                <mat-icon class="icon">
+                    restaurant
+                </mat-icon>
+            </button>
+            <button mat-icon-button="mat-icon-button" routerLink="favorite">
+                <mat-icon class="icon">
+                    favorite
+                </mat-icon>
+            </button>
+            <button mat-icon-button="mat-icon-button" routerLink="profile">
+                <mat-icon class="icon">
+                    account_circle
+                </mat-icon>
+            </button>
+            <button mat-icon-button="mat-icon-button" (click)="logout()">
+                <mat-icon class="icon">
+                    logout
+                </mat-icon>
+            </button>
+
+        </div>
+        <div class="menu user" *ngIf="isLoggedIn && isAdmin">
+
+            <button mat-icon-button="mat-icon-button" routerLink="admin">
+                <mat-icon class="icon">
+                    shield
+                </mat-icon>
+            </button>
+
+            <button mat-icon-button="mat-icon-button" routerLink="profile">
+                <mat-icon class="icon">
+                    account_circle
+                </mat-icon>
+            </button>
+            <button mat-icon-button="mat-icon-button" (click)="logout()">
+                <mat-icon class="icon">
+                    logout
+                </mat-icon>
+            </button>
+
+        </div>
+    </mat-toolbar>
+</div>

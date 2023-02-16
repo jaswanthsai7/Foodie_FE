@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="banner">
+        <div class="banner-title">
+            <img src="../../../assets/logo.png" alt="">
+        </div>
+        <div class="banner-quote">
+            Get best food and Restaurant in
+            <span>{{city}}</span>
+
+        </div>
+        <div class="banner-search">
+            <form class="example-form">
+                <div class="search">
+                    <select name="cities" id="cities" (change)="updateCity()">
+                        <option *ngFor="let city of cities" value="{{city.name}}" id="{{city.name}}">{{city.name}}
+                        </option>
+
+                    </select>
+                    <input type="text" class="search-bar" id="search-bar" placeholder="Search for Food, Restaurant..."
+                        (keyup)="searchData()">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <div class="wrapper">
+                        <!-- <div class="wrapper-empty" *ngIf="search.length<=0">
+                            <p>Oops!</p>
+                            <p>We could not find any matching results.</p>
+                        </div> -->
+                        <div class="wrapper-data" *ngIf="search.length>0">
+                            <div class="item" *ngFor="let item of search">
+                                <div>
+                                    <p class="item-name" routerLink="/restaurant/view/{{item.id}}">{{item.restaurantName}}
+                                    </p>
+    
+                                    <p class="item-city"><i class="fa-solid fa-location-pin"></i> {{item.city}}</p>
+                                </div>
+
+                                <div>
+                                    <img [src]="'data:image/jpeg;base64,' + item.restaurantImage.image" alt="" id="img">
+                                </div>
+
+
+
+                                
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</div>

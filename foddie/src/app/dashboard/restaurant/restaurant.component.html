@@ -1,0 +1,108 @@
+<div class="search">
+    <input type="text" class="search-bar" id="search-bar" placeholder="Search for Food, Restaurant..."
+        (keyup)="searchData()">
+    <i class="fa-solid fa-magnifying-glass"></i>
+</div>
+
+
+<div class="container">
+    <nav class="nav">
+        <mat-card class="restro" *ngFor="let restaurant of restaurants">
+
+
+            <div>
+                <div class="background"></div>
+                <div class="info">
+                    <div class="img">
+                        <img [src]="'data:image/jpeg;base64,' + restaurant.restaurantImage.image" alt="">
+                    </div>
+                    <div class="name">
+                        <div class="content">
+                            <span>
+                                <span routerLink="view/{{restaurant.id}}">{{restaurant.restaurantName}}</span>
+                                <div class="location">
+                                    <i class="loc fa-solid fa-location-pin" id="location"></i>
+                                    {{restaurant.city}}
+                                </div>
+                            </span>
+                            <p>{{restaurant.description}}</p>
+
+                        </div>
+
+                    </div>
+                    <!-- <div class="fav"> -->
+                    <span>
+                        <button mat-icon-button color="accent" matTooltip="add to favorite"
+                            (click)="addFav(restaurant)">
+                            <mat-icon>favorite</mat-icon>
+
+                        </button>
+                    </span>
+                    <!-- </div> -->
+                </div>
+            </div>
+        </mat-card>
+    </nav>
+</div>
+
+
+<!-- <nav class="nav">
+    <mat-card *ngFor="let restaurant of restaurants">
+        <nav class="nav">
+            <mat-card-content>
+                <div class="img">
+                    <img [src]="'data:image/jpeg;base64,' + restaurant.restaurantImage.image" alt="">
+                </div>
+
+            </mat-card-content>
+            <mat-card-title routerLink="view/{{restaurant.id}}">
+                <span class="title">
+                    {{restaurant.restaurantName}}
+                </span>
+                <span class="city">
+                    {{restaurant.city}}
+                </span>
+                <span class="description">
+                    {{restaurant.description}}
+                </span>
+            </mat-card-title>
+        </nav>
+        <div>
+            <button mat-raised-button color="accent" (click)="addFav(restaurant)"><mat-icon>favorite</mat-icon>
+
+            </button>
+
+        </div>
+       
+    </mat-card>
+
+</nav> -->
+
+
+<!-- <div class="container">
+
+    <div class="container" id="fle">
+        <div class="card" *ngFor="let restaurant of restaurants">
+            <div class="card-body">
+                <div class="top">
+                    <img [src]="'data:image/jpeg;base64,' + restaurant.restaurantImage.image" alt="">
+
+                    <h2 class="card-title" routerLink="view/{{restaurant.id}}">{{restaurant.restaurantName}}</h2>
+                    <!-- <p class="card-text">{{restaurant.description}}</p> -->
+
+<!-- 
+                    <h5 class="card-subtitle text-muted"><i class="fa-solid fa-location-pin"></i>
+                        {{restaurant.city}} </h5>
+                </div>
+                <div class="bottom">
+                    <button mat-raised-button color="basic" (click)="addFav(restaurant)">
+                        Favourite
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div> -->
+-->

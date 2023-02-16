@@ -1,0 +1,92 @@
+<mat-card *ngFor="let restaurant of restaurants">
+    <div class="header">
+        <mat-card-title>
+            {{restaurant?.restaurantName}}
+            <br>
+            <span class="city">
+                <i class="fa-solid fa-location-pin"></i>
+                {{restaurant?.city}}
+            </span>
+            <div class="search">
+                <input type="text" class="search-bar" id="search-bar" placeholder="Search for Dishes"
+                    (keyup)="searchData()">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <mat-card-content>
+                <div class="menu">
+                    <div class="items" *ngFor="let menu of menus">
+                        <div class="img">
+                            <img src="../../../../assets/imgs/{{menu.itemName}}.jpg" alt="">
+                        </div>
+                        <div class="info">
+                            <nav class="nav">
+                                <div class="name">
+                                    {{menu.itemName}}
+                                    <br>
+                                    <span class="description">
+                                        {{menu.description}}
+                                    </span>
+                                </div>
+
+                                <span class="pr">
+                                    <span>
+                                        &#8377; {{menu.itemPrice}}
+                                    </span>
+                                </span>
+                            </nav>
+                        </div>
+                        <div>
+                        </div>
+                        <!-- <div class="pr">
+                            <nav class="nav">
+                                &#8377; {{menu.itemPrice}}
+                            </nav>
+                        </div> -->
+                        <div class="add">
+                            <!-- <span class="pr">
+                    <span >
+                        &#8377; {{menu.itemPrice}}
+                    </span>
+                </span> -->
+                            <button mat-icon-button (click)="removeOrder(menu)" *ngIf="menu.quantity">
+                                <mat-icon class="icon">
+                                    remove
+                                </mat-icon>
+                            </button>
+                            <span class="price">
+                                {{menu.quantity ? menu.quantity : 0}}
+                            </span>
+                            <button mat-icon-button (click)="addOrder(menu)">
+                                <mat-icon class="icon">
+                                    add
+                                </mat-icon>
+                            </button>
+                        </div>
+                        <div class="fav">
+                            <button mat-raised-button color="accent" matTooltip="add to favorite"
+                                (click)="addFavDish(menu)">
+                                <mat-icon class="icon">favorite</mat-icon>
+
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card-title>
+    </div>
+</mat-card>
+<div class="checkout" *ngIf="orders.length > 0">
+    <div class="items">
+        Added
+        {{items}}
+        items worth
+        <b>&#8377; {{totalPrice}}</b>
+
+
+    </div>
+    <div class="pay">
+        <button mat-raised-button color="warn" (click)="checkExistingOrder()">
+            Checkout
+        </button>
+    </div>
+</div>

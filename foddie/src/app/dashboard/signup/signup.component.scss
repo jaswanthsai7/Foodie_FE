@@ -1,0 +1,80 @@
+.full-width {
+    width: 100%;
+  }
+  
+  .shipping-card {
+    min-width: 120px;
+    margin: 2px auto;
+  }
+  
+  
+  .mat-radio-button {
+    display: block;
+    margin: 5px 0;
+  }
+  
+  .row {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .col {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .col:last-child {
+    margin-right: 0;
+  }
+  
+  
+  mat-card{
+    max-width: 800px;
+    margin: 30em auto;
+    max-height: 650px ;
+    padding: 10px;
+    opacity:0.7;
+    border-radius: 15px;
+
+  }
+  
+  
+  button{
+    padding: 0px 50px;
+    margin-left: 20px;
+  }
+  
+  mat-form-field{
+    padding: 10px;
+  }
+  
+  #title{
+    text-align: center;
+  }
+  
+  #icon{
+    font-size: 75px;
+    width: 75px;
+    height: 75px;
+    margin-bottom: 10px;
+  }
+
+  #upload{
+    display: none;
+    visibility: hidden;
+}
+
+
+#bottom{
+  justify-content: center;
+}
+
+#radio{
+  margin-left: 10px;
+  word-spacing: 2px;
+}
+
+form{
+  margin-top: 30px;
+}
+
